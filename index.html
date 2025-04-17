@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage Mockup</title>
+    <style>
+        body {
+            background-color: #333;
+            font-family: sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            margin: 0;
+            transition: all 0.3s ease;
+        }
+
+        .container {
+            display: flex;
+            gap: 20px;
+            position: relative;
+            width: 80%;
+            max-width: 960px;
+        }
+
+        .box {
+            background-color: #eee;
+            padding: 20px;
+            text-align: left;
+            box-sizing: border-box;
+            border: 1px solid black;
+            width: 33.33%;
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 1;
+            margin-bottom: 0;
+            min-height: 150px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            cursor: pointer; /* Makes it clear the boxes are interactive */
+        }
+.folder {
+  background-color: #ddd;
+  border: 1px solid black;
+  padding: 10px;
+  display: flex; /* Make tabs appear side-by-side */
+}
+
+.tab {
+  padding: 5px 10px;
+  margin: 0 5px;
+  cursor: pointer;
+  background-color: #eee; /* Initial tab background */
+  border-bottom: 2px solid transparent; /* Remove underline */
+  transition: background-color 0.3s ease;
+}
+        .box:hover {
+          background-color: #ddd; /* Slightly darker background on hover */
+          box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2); /* Subtle shadow on hover */
+
+        }
+
+        .box h2 {
+            margin-top: 0;
+            transition: color 0.3s ease; /* Smooth color transition for headings */
+        }
+
+        .box:hover h2 {
+            color: #007bff; /* Example highlight color for headings */
+        }
+
+        .box p {
+            transition: color 0.3s ease; /* Smooth color transition for paragraphs */
+        }
+
+        .box:hover p {
+            color: #555; /* Example highlight color for paragraphs */
+        }
+
+        .hover-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            pointer-events: none;
+            transition: background-color 0.3s ease;
+            z-index: 0;
+        }
+
+        .container:hover .hover-overlay {
+            background-color: rgba(0, 0, 0, 0.2);
+        }
+a {
+  text-decoration: none;
+}
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                align-items: center;
+                width: 90%;
+            }
+            .box {
+                width: 100%;
+                margin-top: 20px !important;
+            }
+            .box:first-child {
+                margin-top: 0 !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="hover-overlay"></div>
+
+        <div class="box" data-target-margin="0">
+            <h2>News Lessons</h2>
+            <p>Use current stories and events to practice listening, analysing, and discussing skills.</p>
+        </div>
+        <div class="box" data-target-margin="-100">
+            <h2>Example Solutions</h2>
+<a href=examples13.html>
+            <p>Check out example solutions we've created and get ideas for how human centered design can improve your organization's training and productivity.</p>
+        </div>
+        <div class="box" data-target-margin="-200">
+            <h2>Our Design Philosophy</h2>
+            <p>Get to know the basis of our design solutions. Understand how integrating LMS into your organization can improve outcomes and project outlooks.</p>
+	</a>
+        </div>
+    </div>
+
+    <script>
+        const container = document.querySelector('.container');
+        const boxes = document.querySelectorAll('.box');
+
+        container.addEventListener('mouseover', () => {
+            boxes.forEach(box => {
+                box.style.marginTop = box.dataset.targetMargin + 'px';
+            });
+        });
+
+        container.addEventListener('mouseout', () => {
+            boxes.forEach(box => {
+                box.style.marginTop = '0px';
+            });
+        });
+    </script>
+
+</body>
+</html>
